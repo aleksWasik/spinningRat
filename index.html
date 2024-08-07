@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rat</title>
+    <link rel="stylesheet" href="bgm.css" />
+    <style>
+      div {
+        text-align: center;
+      }
+
+      img {
+        height: 500px;
+        cursor: pointer;
+      }
+
+      body {
+        background-color: black;
+      }
+
+      body.color-change-animation {
+        animation: color-change 2500ms ease-in-out infinite;
+      }
+
+      @keyframes color-change {
+        0% {
+          background-color: #d60270;
+        }
+        50% {
+          background-color: #9b4f96;
+        }
+        80% {
+          background-color: #0038a8;
+        }
+        100% {
+          background-color: #d60270;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div><img id="gift-image" src="gift.png" /></div>
+    <audio id="audio" src="freebird.mp3"></audio>
+    <script>
+      document
+        .getElementById("gift-image")
+        .addEventListener("click", function () {
+          this.src = "rat-spinning.gif";
+          document.body.classList.add("color-change-animation");
+          document.getElementById("audio").play();
+          this.style.pointerEvents = "none";
+          this.removeEventListener("click", handleClick);
+        });
+    </script>
+  </body>
+</html>
